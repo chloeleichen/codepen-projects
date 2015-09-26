@@ -1,0 +1,171 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+body {
+  height: 100vh;
+  background: -webkit-radial-gradient(circle at top, #4243a1 0%, #1d1b43 50%, #000000 100%);
+  background: radial-gradient(circle at top, #4243a1 0%, #1d1b43 50%, #000000 100%);
+  /* W3C */
+}
+
+.container {
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+.icon {
+  margin: 0 auto;
+  width: 250px;
+  height: 260px;
+  background: #1462a4;
+  border-radius: 13px;
+  position: relative;
+}
+
+.icon--outer {
+  width: 250px;
+  height: 250px;
+  border-radius: 13px;
+  background: -webkit-linear-gradient(top, #5CD4F8 0%, #0383e4 100%);
+  background: linear-gradient(to bottom, #5CD4F8 0%, #0383e4 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.icon--inner {
+  width: 237px;
+  height: 237px;
+  border-radius: 8px;
+  position: absolute;
+  top: 6.5px;
+  left: 6.5px;
+  right: 6.5px;
+  bottom: 6.5px;
+  background: -webkit-linear-gradient(top, #8de1fa 0%, #0671d3 100%);
+  background: linear-gradient(to bottom, #8de1fa 0%, #0671d3 100%);
+}
+
+.eye {
+  width: calc(50% - 1px);
+  height: 125px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 0;
+}
+
+.eye-left {
+  float: left;
+  border: 0;
+  border-right: 1px;
+  -webkit-border-image: -webkit-linear-gradient(bottom, rgba(100, 100, 100, 0.3), transparent) 1 100%;
+       -o-border-image: linear-gradient(to top, rgba(100, 100, 100, 0.3), transparent) 1 100%;
+          border-image: linear-gradient(to top, rgba(100, 100, 100, 0.3), transparent) 1 100%;
+  background: -webkit-linear-gradient(left, transparent 0%, transparent 98%, rgba(255, 255, 255, 0.1) 100%);
+  background: linear-gradient(to right, transparent 0%, transparent 98%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+.eye-right {
+  float: right;
+  border: 0;
+  border-left: 1px;
+  -webkit-border-image: -webkit-linear-gradient(bottom, rgba(100, 100, 100, 0.3), transparent) 1 100%;
+       -o-border-image: linear-gradient(to top, rgba(100, 100, 100, 0.3), transparent) 1 100%;
+          border-image: linear-gradient(to top, rgba(100, 100, 100, 0.3), transparent) 1 100%;
+  background: -webkit-linear-gradient(right, transparent 0%, transparent 98%, rgba(255, 255, 255, 0.1) 100%);
+  background: linear-gradient(to left, transparent 0%, transparent 98%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+.eye--inner {
+  width: 25px;
+  height: 62.5px;
+  background: #000;
+  margin: 25px auto;
+  border-radius: 65px;
+  padding: 8px;
+}
+.eye--inner .eyeball {
+  width: 100%;
+  height: 60%;
+  background: #f0f0f0;
+  border-radius: 65px;
+}
+
+.mouth--outer {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  padding: 18px;
+  position: relative;
+  z-index: 1;
+  background: -webkit-linear-gradient(top, #fed48f 0%, #F36E41 100%);
+  background: linear-gradient(to bottom, #fed48f 0%, #F36E41 100%);
+  margin: 124.73684px auto 0 auto;
+}
+
+.mouth--inner {
+  height: 40px;
+  width: 40px;
+  padding: 40px;
+  margin: auto;
+  border-radius: 50%;
+  background: -webkit-radial-gradient(top, circle, #5a2308 0%, #d36426 100%);
+  background: radial-gradient(circle at top, #5a2308 0%, #d36426 100%);
+}
+
+.teeth--outer {
+  height: 100%;
+  width: 100%;
+  background: -webkit-radial-gradient(center, ellipse, #555555 0%, #333333 100%);
+  background: radial-gradient(ellipse at center, #555555 0%, #333333 100%);
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.teeth--inner {
+  height: 13px;
+  width: 4px;
+  margin: 0 2px;
+  background: #222;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+li.teeth--inner:nth-child(2) {
+  height: 20px;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.badge {
+  height: 100px;
+  width: 100px;
+  background: #f63d3d;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+}
+.badge span {
+  line-height: 100px;
+  font-size: 66.66667px;
+  font-family: 'Lato', sans-serif;
+}

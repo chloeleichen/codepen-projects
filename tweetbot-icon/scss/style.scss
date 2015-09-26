@@ -1,0 +1,166 @@
+$dark: #1D1B43;
+$purple: #4243A1;
+$sky: #5CD4F8;
+$blue: rgb(3, 131, 228);
+$sea: rgb(6, 113, 211);
+$base: rgb(20, 98, 164);
+$orange: #F36E41;
+$orange-light: rgb(253, 193, 93);
+$coffee: rgb(90, 35, 8);
+$coffee-light: rgb(211, 100, 38);
+$red: rgb(246, 61, 61);
+$width: 250px;
+$radius: 13px;
+$badge-width: 100px;
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@mixin list-reset{
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+@mixin position ($top: 0, $left: 0, $right: 0, $bottom: 0){
+  position: absolute;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bottom;
+}
+
+@mixin eye-container($float: left, $direction: right){
+  float: #{$float};
+  border: 0;
+  border-#{$direction}:1px;
+  border-image:
+      linear-gradient(to top, rgba(100,100,100, 0.3), rgba(0, 0, 0, 0)) 1 100%;
+  background: linear-gradient(to #{$direction}, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 98%, rgba(255,255,255,0.1) 100%); 
+}
+
+body{
+  height: 100vh;
+  background: radial-gradient(circle at top, $purple 0%,$dark 50%, #000 100% ); /* W3C */
+}
+
+.container{
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+.icon{
+  margin: 0 auto;
+  width: $width;
+  height: $width + 10px;
+  background: $base;
+  border-radius: $radius;
+  position: relative;
+}
+
+.icon--outer{
+  width: $width;
+  height: $width;
+  border-radius: $radius;
+  background: linear-gradient(to bottom, $sky 0%, $blue 100%);
+  @include position();
+}
+
+.icon--inner{
+  width: $width - $radius;
+  height: $width - $radius;
+  border-radius: $radius - 5px;
+  @include position($radius/2, $radius/2, $radius/2, $radius/2);
+  background: linear-gradient(to bottom, lighten($sky, 10%) 0%, $sea 100%);
+}
+
+.eye{
+  width: calc(50% - 1px);
+  height: $width/2;
+  margin-top: 20px;
+  position: relative;
+  z-index: 0;
+}
+.eye-left{
+  @include eye-container();
+}
+.eye-right{
+  @include eye-container(right, left);  
+}
+
+.eye--inner{
+  width: $width/10;
+  height: $width/4;
+  background: #000;
+  margin: $width/10 auto;
+  border-radius: $radius*5;
+  padding: 8px;
+  .eyeball{
+    width: 100%;
+    height: 60%;
+    background: #f0f0f0;
+    border-radius: $radius*5;
+  }
+}
+
+.mouth--outer{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  padding: 18px;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(to bottom, lighten($orange-light, 10%) 0%, $orange 100%);
+  margin: ($width - $radius)/1.9 auto 0 auto;
+}
+
+.mouth--inner{
+  height: 40px;
+  width: 40px;
+  padding: 40px;
+  margin: auto;
+  border-radius: 50%;
+  background: radial-gradient(circle at top, $coffee 0%,$coffee-light 100% );
+  
+}
+
+.teeth--outer{
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(ellipse at center, #555 0%,#333 100%);
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.teeth--inner{
+  height: 13px;
+  width: 4px;
+  margin: 0 2px;
+  background: #222;
+  border-radius: 20px; 
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+li.teeth--inner:nth-child(2){
+  height: 20px;
+}
+
+ul, li{
+  @include list-reset();
+}
+
+.badge{
+  height: $badge-width;
+  width: $badge-width;
+  background: $red;
+  color:#fff;
+  border-radius: 50%;
+  text-align: center;
+  position: absolute;
+  top:-$badge-width/2.5;
+  right: -$badge-width/2.5;
+  span{
+    line-height: $badge-width;
+    font-size: $badge-width/1.5;
+    font-family: 'Lato', sans-serif;
+  }
+}
