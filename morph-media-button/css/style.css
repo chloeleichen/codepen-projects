@@ -1,0 +1,27 @@
+body {
+  background: #f0f0f0;
+  padding-top: 100px;
+}
+
+button {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  margin: 10px auto;
+  display: block;
+  border: 0px;
+  background: #000000;
+  background-image: -webkit-linear-gradient(top, #000000, #40464a);
+  background-image: linear-gradient(to bottom, #000000, #40464a);
+  border-radius: 60px;
+  padding: 10px 20px 10px 20px; }
+  button.saved {
+    background: #282c2e;
+    background-image: -webkit-linear-gradient(top, #282c2e, #000000);
+    background-image: linear-gradient(to bottom, #282c2e, #000000);
+    text-decoration: none; }
+
+svg {
+  display: block;
+  margin: auto;
+  stroke: rgba(255, 255, 255, 0.3); }
