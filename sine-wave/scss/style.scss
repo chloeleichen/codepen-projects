@@ -1,0 +1,82 @@
+$colors: (
+  green: #0CFBAB,
+  pink: #F3396B,
+  blue: #08D3FC,
+  yellow: #FCDB17,
+);
+
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin list-reset{
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+// color function
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+  @warn "Unknown `#{$key}` in $colors.";
+  @return null;
+}
+
+
+body{
+  background: #3B354A;
+  height: 100vh;
+  }
+.container{
+  height: 6px;
+  width: 300px;
+  margin: 0px auto;
+  text-align: center;
+  @include vertical-align;
+}
+
+.inner{
+  height: 6px;
+  @include list-reset; 
+}
+
+.dot{
+  @include list-reset;
+  height: 7px;
+  width: 25px;
+  float: left;
+  
+}
+.dot-inner{
+  height: 7px;
+  width: 7px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li:nth-child(4n) .dot-inner{
+  background: color(green);
+}
+
+li:nth-child(4n+1) .dot-inner{
+  background: color(pink);
+}
+
+li:nth-child(4n+2) .dot-inner{
+  background: color(blue);
+}
+
+li:nth-child(4n+3) .dot-inner{
+  background: color(yellow);
+}
+
+
+
+

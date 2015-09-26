@@ -1,0 +1,55 @@
+body {
+  background: #3B354A;
+  height: 100vh;
+}
+
+.container {
+  height: 6px;
+  width: 300px;
+  margin: 0px auto;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.inner {
+  height: 6px;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.dot {
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: 7px;
+  width: 25px;
+  float: left;
+}
+
+.dot-inner {
+  height: 7px;
+  width: 7px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li:nth-child(4n) .dot-inner {
+  background: #0CFBAB;
+}
+
+li:nth-child(4n+1) .dot-inner {
+  background: #F3396B;
+}
+
+li:nth-child(4n+2) .dot-inner {
+  background: #08D3FC;
+}
+
+li:nth-child(4n+3) .dot-inner {
+  background: #FCDB17;
+}
