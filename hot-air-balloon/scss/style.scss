@@ -1,0 +1,177 @@
+$bg: #e1f6f4;
+$seat-light: #f0dca2;
+$seat-medium: #e0b58c;
+$seat-dark: #cd7856;
+$balloon-dark: #bf5caa;
+$balloon-light: #eadada;
+$balloon-medium: #d59dc5;
+
+$width: 100px;
+$height: 100px;
+$border: 3px;
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 45%;
+  transform: translateY(-45%);
+}
+body{
+  background: $bg;
+  //overflow: hidden;
+}
+.container{
+  height: 100vh;
+  //overflow: hidden;
+}
+
+.ballon{
+  margin: 0 auto;
+  width: $width + $border*2;
+  @include vertical-align();
+}
+
+.ballon-inner{
+  animation: drift 5s ease-in-out infinite;
+}
+
+.ballon-ball{
+  height: $height;
+  width: $width;
+  position: relative;
+  background: radial-gradient(39% 39%, closest-corner, $balloon-light 86%, $balloon-medium 88%, $balloon-medium 100%);
+  border-radius: 50%;
+  border: $border solid $balloon-dark;
+  overflow: hidden;
+}
+
+.ball-inner{
+  position: absolute;
+  height: $width/10;
+  //background: yellow;
+  top: $height/2 + $border;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+@mixin circle($index){
+  width: $width/5;
+  height: $height/5;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: $index*$width/5 - $border;
+  border: $border solid $balloon-dark;
+}
+
+@for $i from 0 through 4{
+  .ball-inner--#{$i}
+  {
+    @include circle($i);
+  } 
+}
+.ballon-rope{
+  height: $height/1.8;
+  width: $width/1.8;
+  position: absolute;
+  z-index: -1;
+  left: $width/4.3;
+  top: $height/1.8;
+  border: $seat-dark solid $border;
+  border-right: $seat-dark solid $border;
+  transform: rotate(53deg) skew(18deg);
+}
+
+$seat-size: $width/3.5;
+.ballon-seat{
+  width: $seat-size;
+  height: $seat-size;
+  position: relative;
+  border: $border solid $seat-dark;
+  border-radius: 0 0 $border*2 $border*2;
+  margin: $height/8 auto;
+  background: linear-gradient(to right, $seat-light 0%, $seat-light 60%, $seat-medium 65%);
+  &:before{
+    content: '';
+    width: $seat-size;
+    height: $seat-size/2;
+    position: absolute;
+    border-radius: 0 0 $border*2 $border*2;
+    bottom: 0;
+    left: 0;
+    border-top: $border solid $seat-dark;
+    background: transparent;
+  }
+}
+
+.sky{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cloud{
+  position: absolute;
+  background: #fff;
+  border-radius: 200px;
+  &:before, &:after {
+  content: '';
+  position: absolute; 
+  background: #fff;
+  width: 50%; 
+  height: 100%;
+  position: absolute; 
+  top: -40%; 
+  left: 12%;
+  border-radius: 100px; 
+  }
+  
+  &:after {
+  width: 30%; height: 60%;
+  top: -20%; 
+  left: auto; 
+  right: 8%;
+  }
+}
+
+.cloud-1{
+  width: $width*1.2;
+  height: $width*0.6;
+  top: 10%;
+  left: 100%;
+  animation: moveClouds 13s linear infinite ;
+  animation-delay: 2s;
+}
+
+.cloud-2{
+  width: $width/1.2;
+  height: $height/2.4;
+  bottom: 20%;
+  left: 100%;
+  animation: moveClouds 12s linear infinite ;
+  animation-delay: 0s;
+}
+
+.cloud-3{
+  width: $width/1.5;
+  height: $height/3;
+  bottom: 50%;
+  left: 100%;
+  animation: moveClouds 15s linear infinite ;
+  animation-delay: 3s;
+}
+
+@keyframes moveClouds{
+  0% {transform: translateX(0);}
+  100% {transform: translateX(-110vw);}
+}
+
+@keyframes drift{
+  0% {transform: translateY(0px) rotate();}
+  50% {transform: translateY(-20px) rotate(-3deg);}
+  100% {transform: translateY(0px) rotate();}
+}
+

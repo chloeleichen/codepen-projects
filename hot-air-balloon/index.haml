@@ -1,0 +1,16 @@
+.container
+  .sky
+    .cloud-1.cloud
+      .cloud--inner
+    .cloud-2.cloud
+      .cloud--inner
+    .cloud-3.cloud
+      .cloud--inner
+  .ballon
+    .ballon-inner
+      .ballon-ball
+        .ball-inner
+          - (0..4).each do |i|
+            %div{:class=>"ball-inner--#{i}"}
+      .ballon-rope
+      .ballon-seat
