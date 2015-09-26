@@ -1,0 +1,91 @@
+.clock {
+  width: 150px;
+}
+
+.outer {
+  background: #F14E42;
+  position: relative;
+  height: 150px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.handle {
+  height: 10px;
+  width: 60px;
+  background: #d71e10;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 2px 1px rgba(143, 20, 11, 0.26);
+}
+
+.inner {
+  background: #f0f0f0;
+  border-radius: 5px;
+  position: relative;
+  height: 120px;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.26);
+  background: -webkit-linear-gradient(top, #999999 80%, #f0f0f0 100%);
+  background: linear-gradient(top, #999999 80%, #f0f0f0 100%);
+}
+
+.date {
+  font-size: 70px;
+  line-height: 1.6;
+  display: block;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: visible;
+}
+
+.date1 {
+  height: 47%;
+  overflow: hidden;
+  background: #ebebeb;
+  z-index: 10;
+  border-radius: 5px 5px 0 0;
+  box-shadow: inset 0px 0px 2px 1px rgba(153, 153, 153, 0.1);
+  border-color: transparent;
+}
+
+.date2 {
+  left: 0px;
+  right: 0px;
+  bottom: 10px;
+  background: #f0f0f0;
+  -webkit-transform-origin: 50% 100%;
+      -ms-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+  -webkit-transform: perspective(300px) rotateX(13deg) scaleY(1.08) scaleX(1.04);
+          transform: perspective(300px) rotateX(13deg) scaleY(1.08) scaleX(1.04);
+  background: -webkit-linear-gradient(top, rgba(153, 153, 153, 0.1) 50%, #f0f0f0 53%, rgba(255, 255, 255, 0.9) 100%);
+  background: linear-gradient(top, rgba(153, 153, 153, 0.1) 50%, #f0f0f0 53%, rgba(255, 255, 255, 0.9) 100%);
+  box-shadow: inset 0px 0px 2px 1px rgba(153, 153, 153, 0.26);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  outline: 1px solid transparent;
+}
+
+.shadow {
+  height: 138px;
+  width: 132px;
+  position: absolute;
+  border-radius: 0 0 15px 0;
+  left: 18px;
+  bottom: 0;
+  background: -webkit-linear-gradient(45deg, transparent 0%, transparent 7%, rgba(0, 0, 0, 0.1) 8%, rgba(0, 0, 0, 0.1) 93%, transparent 94%, transparent 100%);
+  background: linear-gradient(45deg, transparent 0%, transparent 7%, rgba(0, 0, 0, 0.1) 8%, rgba(0, 0, 0, 0.1) 93%, transparent 94%, transparent 100%);
+}
+
+.inner-shadow {
+  height: 38px;
+  width: 118px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  background: -webkit-linear-gradient(45deg, white 0%, rgba(255, 255, 255, 0.1) 7%, rgba(68, 68, 68, 0.1) 8%, rgba(68, 68, 68, 0.1) 100%);
+  background: linear-gradient(45deg, white 0%, rgba(255, 255, 255, 0.1) 7%, rgba(68, 68, 68, 0.1) 8%, rgba(68, 68, 68, 0.1) 100%);
+}

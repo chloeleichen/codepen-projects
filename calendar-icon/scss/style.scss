@@ -1,0 +1,92 @@
+$orange: #F14E42;
+$width: 150px;
+$height: 150px;
+$height-inner: 120px;
+$radius-outer: 15px;
+$radius-inner: 5px;
+$radius-handle: 5px;
+
+.clock{
+  width: $width;
+}
+.outer{
+  background: $orange;
+  position: relative;
+  height: $height;
+  border-radius: $radius-outer;
+   box-shadow: 0px 0px 2px 1px rgba(#000, 0.3);
+}
+
+.handle{
+  height: 10px;
+  width: 60px;
+  background: darken($orange, 15%);
+  border-radius: $radius-handle;
+  box-shadow: inset 0px 0px 2px 1px rgba(darken($orange, 30%), 0.26);
+}
+
+.inner{
+  background: #f0f0f0;
+  border-radius: $radius-inner;
+  position:relative;
+  height:$height-inner;
+  box-shadow: 0px 1px 2px 1px rgba(#000, 0.26);
+  background: linear-gradient(top, rgba(#999, 1) 80%, rgba(#f0f0f0, 1) 100%);
+}
+
+.date{
+  font-size: 70px;
+  line-height: 1.6;
+  display: block;
+  border-radius: $radius-inner;
+  position: absolute;
+  top: 0;
+  right:0;
+  bottom: 0;
+  left: 0;
+  overflow: visible;
+}
+
+.date1{
+  height: 47%;
+  overflow: hidden;
+  background: darken(#f0f0f0, 2%);
+  z-index: 10;
+  border-radius: $radius-inner $radius-inner 0 0;
+  box-shadow: inset 0px 0px 2px 1px rgba(#999, 0.1);
+  border-color: transparent;
+}
+
+.date2{
+  left: 0px;
+  right: 0px;
+  bottom: 10px;
+  background: #f0f0f0;
+  transform-origin: 50% 100%;
+	transform: perspective(300px) rotateX(13deg) scaleY(1.08) scaleX(1.04);
+  background: linear-gradient(top, rgba(#999, 0.1) 50%,  rgba(#f0f0f0, 1) 53%, rgba(#fff, 0.9) 100%);
+  box-shadow: inset 0px 0px 2px 1px rgba(#999, 0.26);
+  backface-visibility:hidden;
+  -webkit-backface-visibility: hidden;
+  outline: 1px solid transparent;
+  
+}
+
+.shadow{
+  height: 138px;
+  width: 132px;
+  position: absolute;
+  border-radius: 0 0 15px 0;
+  left: 18px;
+  bottom: 0;
+  background: linear-gradient(45deg,  rgba(#000,0.0) 0%,rgba(#000,0.0) 7%,rgba(#000,0.1) 8%,rgba(#000,0.1) 93%, rgba(#000,0.0) 94%,rgba(#000,0.0) 100%);
+}
+
+.inner-shadow{
+  height: 38px;
+  width: 118px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(45deg,  rgba(#FFF,1.0) 0%,rgba(#FFF,0.1) 7%,rgba(#444,0.1) 8%,rgba(#444,0.1) 100%);
+}
