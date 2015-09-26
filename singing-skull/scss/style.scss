@@ -47,25 +47,30 @@ $radius: $width/13;
   100% {transform: translateY($value)}
 }
 @keyframes blink-upper{
-  @include blink(-100%);
+  @include blink(-110%);
 }
 
 @keyframes blink-lower{
-  @include blink(100%);
+  @include blink(110%);
 }
 
-@keyframes talk{
+@keyframes sing{
   0%{height: 5px;}
-  50%{height: 10px;}
+  50%{height: 13px;}
   100%{height: 5px;}
 }
 
 
+//layout 
 body{
   background: $bg;
+}
+
+#skull{
   height: 100vh;
 }
 
+//skulll 
 .skull{
   @include vertical-align();
   width: $width;
@@ -110,7 +115,7 @@ body{
 .back{
   @include forehad-component(left, 5px);
   width: $width/2.4;
-  background: linear-gradient(to right,rgba(0,0,0,0) 50%,$skull-dark 100%);
+  background: linear-gradient(to right,rgba($skull,0) 50%,$skull-dark 100%);
   border-radius: 0 $radius $radius 0;
 }
 
@@ -128,23 +133,103 @@ body{
         &::before{
       @extend %eyelid;
       transform: translateY(-100%);
-      animation: blink-upper 5s ease-in-out infinite;
+      animation: blink-upper 4s ease-in-out infinite;
     }
     
     &::after{
       @extend %eyelid;
       transform: translateY(100%);
-      animation: blink-lower 5s ease-in-out infinite;
+      animation: blink-lower 4s ease-in-out infinite;
     }
   }
 }
 //state
-.is-talking{
+.is-singing{
   .teeth{
-    animation: talk 2s ease-in infinite;
+    animation-delay: 1s;
+    animation: sing 1s ease-in infinite;
+    //background: yellow;
   }
 }
 
+//music control 
+$m : #C4BBF0;
+$m-dark: #927FBF;
+$h: 50px;
+$w: 50px;
 
+.control{
+  height: $h;
+  width: $w;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  border-radius: 50%;
+  box-shadow: none;
+  background: radial-gradient(ellipse at center, lighten($bg, 10%) 0%,#000 100%); /* W3C */
+  &:hover{
+    border-color: $m-dark;
+    background: radial-gradient(ellipse at center, lighten($bg, 20%) 0%,#000 100%); /* W3C */
+  }
+}
+#toggle{
+  height: $w;
+  width: $h;
+  background: transparent;
+  display: block;
+  border: 2px solid $m;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+  &:focus{
+    outline: none;
+  }
+  &:hover{
+    border-color: $m-dark;
+  }
+}
 
+.music{
+    background: $m;
+    height: 30px;
+    width: 3px;
+    margin: 7px auto;
+    position: relative;
+    &::before{
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0%;
+      left: 0;
+      width: 12px;
+      height: 20px;
+      border-width: 3px 1px 0 3px;
+      border-style: solid;
+      border-color: $m transparent transparent $m;
+      background: transparent;
+      border-radius: 0 15px 0 0;
+    }
+    &::after{
+      content: "";
+      display: block;
+      position: absolute;
+      height: 10px;
+      width: 13px;
+      top: calc(100% - 5px);
+      right: 0;
+      background: $m;
+      border-radius:  7px 7px 7px 7px;
+      transform: rotate(-12deg);
+    }
+}
 
+.is-singing .control{
+  #toggle{
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 0) 48%, $m 48%, $m 52%, rgba(0, 0, 0, 0) 52%,rgba(0, 0, 0, 0) 99%);
+    z-index: 100;
+  }
+}
