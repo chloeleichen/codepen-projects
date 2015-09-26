@@ -1,0 +1,150 @@
+$bg: #242122;
+$skull: #EBEAD5;
+$skull-dark: #C6C6B5;
+$width: 270px;
+$height: 235px;
+$radius: $width/13;
+
+//mixins
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin tooth($direction){
+    width: $width/2 - $width/7.5 - 20px;
+    border-left: 5px solid $bg;
+    border-right: 5px solid $bg;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(to right, rgba(0,0,0,0) 30%,$bg 30%, $bg 36%, rgba(0,0,0,0) 36%, rgba(0,0,0,0) 64%, $bg 64%, $bg 70%,rgba(0,0,0,0) 70%);
+}
+@mixin forehad-component($direction, $value){
+  height: $height/3;
+  position: absolute;
+  top: $height/12;
+  #{$direction}: $value;
+}
+
+//partials 
+%eyelid{
+      content:"";
+      height: 50%;
+      width: 100%;
+      background: $skull;
+      display: block;
+}
+
+//animation 
+@mixin blink($value){
+  0% {transform: translateY($value)}
+  1% {transform: translateY(0)}
+  2% {transform: translateY($value)}
+  10% {transform: translateY($value)}
+  11% {transform: translateY(0)}
+  12% {transform: translateY($value)}
+  100% {transform: translateY($value)}
+}
+@keyframes blink-upper{
+  @include blink(-100%);
+}
+
+@keyframes blink-lower{
+  @include blink(100%);
+}
+
+@keyframes talk{
+  0%{height: 5px;}
+  50%{height: 10px;}
+  100%{height: 5px;}
+}
+
+
+body{
+  background: $bg;
+  height: 100vh;
+}
+
+.skull{
+  @include vertical-align();
+  width: $width;
+  height: $height;
+  margin: 0 auto;
+  border-radius: $radius;
+}
+
+.forehead{
+  height: $height/1.45;
+  width: $width;
+  background: $skull;
+  background: linear-gradient(to right,$skull-dark 2%,$skull 30%);
+  border-radius: $radius $radius 0 $radius;
+  position: relative;
+}
+
+.mouth{
+  background: yellow;
+  float: right;
+  border-radius: 0 0 $radius $radius;
+  background: $skull;
+  height: auto;
+  padding: 10px 0px 20px 36px;
+}
+
+.teeth{
+  height: 5px;
+  width: $width/2 - $width/7.5;
+  top: 55%;
+  background: $bg;
+  right: 0;
+}
+
+.jaw-upper{
+@include tooth(bottom);
+}
+.jaw-lower{
+@include tooth(top);
+}
+
+.back{
+  @include forehad-component(left, 5px);
+  width: $width/2.4;
+  background: linear-gradient(to right,rgba(0,0,0,0) 50%,$skull-dark 100%);
+  border-radius: 0 $radius $radius 0;
+}
+
+.eyes{
+  @include forehad-component(right, 0px);
+  width: $width/2;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  span{
+    height: $width/7;
+    width: $width/7;
+    background: $bg;
+    border-radius: 50%;
+        &::before{
+      @extend %eyelid;
+      transform: translateY(-100%);
+      animation: blink-upper 5s ease-in-out infinite;
+    }
+    
+    &::after{
+      @extend %eyelid;
+      transform: translateY(100%);
+      animation: blink-lower 5s ease-in-out infinite;
+    }
+  }
+}
+//state
+.is-talking{
+  .teeth{
+    animation: talk 2s ease-in infinite;
+  }
+}
+
+
+
+
