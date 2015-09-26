@@ -1,0 +1,46 @@
+.wind
+  .wind-head
+    .wind--title WIND APP
+    .wind-head--components.flex
+      .wind--number 
+        %span#wind--number__value 10
+        %span km/h
+      .wind--direction East
+  .wind-body.center
+    %ul.wind--meter.reset.flex
+      %li 30
+      %li 20
+      %li 10
+      %li 00
+      %li 10
+      %li 20
+      %li 30
+    .wind-paper
+      %div
+        %div
+          %div
+            %div
+              %div
+                %div
+                  %div
+                    %div
+                      %div
+                        %div
+  .wind-bottom.center
+    %ul.wind--time.reset.flex
+      %li 10AM
+      %li 12AM
+      %li 2PM
+      %li.is-active 4PM
+      %li 6PM
+      %li 8PM
+  .wind-footer
+    %ul.wind--date.reset.flex.center
+      %li.date Saturday, Sep 19
+      %li.date Sunday, Sep 20
+      %li.date Monday, Sep 21
+    %ul.wind-nav.reset.flex
+      %li 
+        %a{title: "previous day", href: "#", id:"previous", class: "date-nav is-disabled"} previous
+      %li 
+        %a{title: "next day", href: "#", id:"next", class: "date-nav"} next

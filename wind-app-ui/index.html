@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Wind app UI</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/normalize.css">
+
+    
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <div class='wind'>
+  <div class='wind-head'>
+    <div class='wind--title'>WIND APP</div>
+    <div class='wind-head--components flex'>
+      <div class='wind--number'>
+        <span id='wind--number__value'>10</span>
+        <span>km/h</span>
+      </div>
+      <div class='wind--direction'>East</div>
+    </div>
+  </div>
+  <div class='wind-body center'>
+    <ul class='wind--meter reset flex'>
+      <li>30</li>
+      <li>20</li>
+      <li>10</li>
+      <li>00</li>
+      <li>10</li>
+      <li>20</li>
+      <li>30</li>
+    </ul>
+    <div class='wind-paper'>
+      <div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <div>
+                        <div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='wind-bottom center'>
+    <ul class='wind--time reset flex'>
+      <li>10AM</li>
+      <li>12AM</li>
+      <li>2PM</li>
+      <li class='is-active'>4PM</li>
+      <li>6PM</li>
+      <li>8PM</li>
+    </ul>
+  </div>
+  <div class='wind-footer'>
+    <ul class='wind--date reset flex center'>
+      <li class='date'>Saturday, Sep 19</li>
+      <li class='date'>Sunday, Sep 20</li>
+      <li class='date'>Monday, Sep 21</li>
+    </ul>
+    <ul class='wind-nav reset flex'>
+      <li>
+        <a class='date-nav is-disabled' href='#' id='previous' title='previous day'>previous</a>
+      </li>
+      <li>
+        <a class='date-nav' href='#' id='next' title='next day'>next</a>
+      </li>
+    </ul>
+  </div>
+</div>
+    
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
