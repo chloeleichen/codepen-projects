@@ -1,0 +1,9 @@
+canvas {
+  margin: 0 auto;
+  display: block;
+}
+
+body {
+  overflow: hidden;
+  background: #30293F;
+}
